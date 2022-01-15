@@ -1,0 +1,151 @@
+<ScreenManagement>:
+    MenuScreen:
+        name: 'menu'
+    CalculatorScreen:
+        name: 'calculator'
+
+<MenuScreen>:
+    BoxLayout:
+        Button:
+            text: 'Goto Calculator'
+            on_press: root.manager.current = 'calculator'
+        Button:
+            text: 'Quit'
+
+<CalculatorScreen>:
+    id: calculator
+    display: entry
+    
+
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 2
+        padding: 7
+        BoxLayout:
+            spacing: 2
+            TextInput:
+                id: entry
+                background_color:(.2,1,.9,1)
+                multiline: False
+                bold: True
+                size_hint_x: 3
+                on_text_validate: root.on_enter(entry.text)
+                
+            Button:
+                text:'CE'
+                background_color:(255,.5,.5,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text = ''
+                #size_hint_x= 1  
+                
+        BoxLayout:
+            spacing: 2
+            Button:
+                text:'7'
+                background_color:(25,55,1,1)
+                color: (0,0,0,1)
+                bold: True
+                on_press: entry.text += self.text
+            Button:
+                text:'8'
+                background_color:(25,55,1,1)
+                color: (0,0,0,1)
+                bold: True
+                on_press: entry.text += self.text
+            Button:
+                text:'9'
+                background_color:(25,55,1,1)
+                color: (0,0,0,1)
+                bold: True
+                on_press: entry.text += self.text
+            Button:
+                text:'*'
+                background_color:(25,55,1,1)
+                color: (0,0,0,1)
+                bold: True
+                on_press: entry.text += self.text
+
+        BoxLayout:
+            spacing: 2
+            Button:
+                text:'4' 
+                background_color:(25,1,255,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text += self.text
+            Button:
+                text:'5'
+                background_color:(25,1,255,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text += self.text
+            Button:
+                text:'6'
+                background_color:(25,1,255,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text += self.text
+            Button:
+                text:'-'    
+                background_color:(25,1,255,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text += self.text
+        BoxLayout:    
+            spacing: 2
+            Button:
+                text:'1'
+                background_color:(0.7,1,255,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text += self.text
+            Button:
+                text:'2'
+                background_color:(0.7,1,255,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text += self.text
+            Button:
+                text:'3'
+                background_color:(0.7,1,255,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text += self.text
+            Button:
+                text:'+'
+                background_color:(0.7,1,255,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text += self.text
+        
+        BoxLayout:
+            spacing: 2
+            Button:
+                text:'+/-'
+                background_color:(0.7,255,.5,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text = ''
+            Button:
+                text:'0'
+                background_color:(0.7,255,.5,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: entry.text += self.text
+            Button:
+                text:'.'
+                font_size: 24
+                background_color:(0.7,255,.5,1)
+                color: (0,0,0,1)
+                bold: True   
+                on_press: entry.text += self.text
+            Button:
+                text:'='
+                background_color:(0.7,255,.5,1)
+                color: (0,0,0,1)   
+                bold: True
+                on_press: root.calculate(entry.text)
+            
+        
